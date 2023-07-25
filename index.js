@@ -5,7 +5,7 @@ const getImageBtn = document.querySelector("#get-image-btn");
 const gifsOnlyCheckbox = document.querySelector("#gifs-only-checkbox");
 
 emotionsRadios.addEventListener("change", highlightSelectedEmotion);
-getImageBtn.addEventListener("click", getMatchingCatsArray);
+getImageBtn.addEventListener("click", getSingleCatObject);
 
 function highlightSelectedEmotion(e) {
   const selectedEmotionID = e.target.id;
@@ -36,6 +36,17 @@ function getMatchingCatsArray() {
       }
     });
     return matchingCatsArray;
+  }
+}
+
+function getSingleCatObject() {
+  const catsArray = getMatchingCatsArray();
+
+  if (catsArray.length === 1) {
+    return catsArray[0];
+  } else {
+    const randomIndex = Math.floor(Math.random() * catsArray.length);
+    return catsArray[randomIndex];
   }
 }
 
