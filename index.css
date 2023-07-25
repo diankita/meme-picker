@@ -112,6 +112,12 @@ input[type="radio"]{
     margin-bottom: 8px;
 }
 
+.get-image-btn:hover, .get-image-btn:focus {
+    cursor: pointer;
+    color: #67595e;
+    background-color: #eed6d3;
+}
+
 /* modal */
 
 .meme-modal{
