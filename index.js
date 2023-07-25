@@ -1,8 +1,11 @@
 import { catsData } from "/data.js";
 
 const emotionsRadios = document.querySelector("#emotion-radios");
+const getImageBtn = document.querySelector("#get-image-btn");
+const gifsOnlyCheckbox = document.querySelector("#gifs-only-checkbox");
 
 emotionsRadios.addEventListener("change", highlightSelectedEmotion);
+getImageBtn.addEventListener("click", getMatchingCatsArray);
 
 function highlightSelectedEmotion(e) {
   const selectedEmotionID = e.target.id;
@@ -15,6 +18,25 @@ function highlightSelectedEmotion(e) {
   document
     .getElementById(selectedEmotionID)
     .parentElement.classList.add("highlight");
+}
+
+function getMatchingCatsArray() {
+  if (document.querySelector('input[type="radio"]:checked')) {
+    const checkedRadioValue = document.querySelector(
+      'input[type="radio"]:checked'
+    ).value;
+
+    const isGifChecked = gifsOnlyCheckbox.checked;
+
+    const matchingCatsArray = catsData.filter(function (cat) {
+      if (isGifChecked) {
+        return cat.emotionTags.includes(checkedRadioValue) && cat.isGif;
+      } else {
+        return cat.emotionTags.includes(checkedRadioValue);
+      }
+    });
+    return matchingCatsArray;
+  }
 }
 
 function getEmotionsArray(cats) {
