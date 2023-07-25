@@ -3,9 +3,12 @@ import { catsData } from "/data.js";
 const emotionsRadios = document.querySelector("#emotion-radios");
 const getImageBtn = document.querySelector("#get-image-btn");
 const gifsOnlyCheckbox = document.querySelector("#gifs-only-checkbox");
+const memeModal = document.querySelector("#meme-modal");
+const memeModalInner = document.querySelector("#meme-modal-inner");
+const memeModalCloseBtn = document.querySelector("#meme-modal-close-btn");
 
 emotionsRadios.addEventListener("change", highlightSelectedEmotion);
-getImageBtn.addEventListener("click", getSingleCatObject);
+getImageBtn.addEventListener("click", renderCatMeme);
 
 function highlightSelectedEmotion(e) {
   const selectedEmotionID = e.target.id;
@@ -48,6 +51,17 @@ function getSingleCatObject() {
     const randomIndex = Math.floor(Math.random() * catsArray.length);
     return catsArray[randomIndex];
   }
+}
+
+function renderCatMeme() {
+  const catObject = getSingleCatObject();
+  memeModal.style.display = "flex";
+  memeModalInner.innerHTML = `
+    <img 
+      class="cat-img" 
+      src="./images/${catObject.image}"
+      alt="${catObject.alt}"
+    >`;
 }
 
 function getEmotionsArray(cats) {
