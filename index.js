@@ -9,6 +9,12 @@ const memeModalCloseBtn = document.querySelector("#meme-modal-close-btn");
 
 emotionsRadios.addEventListener("change", highlightSelectedEmotion);
 getImageBtn.addEventListener("click", renderCatMeme);
+memeModalCloseBtn.addEventListener("click", closeModal);
+document.addEventListener("click", (e) => {
+  if (e.target.id != "meme-modal" && e.target.id != "get-image-btn") {
+    closeModal();
+  }
+})
 
 function highlightSelectedEmotion(e) {
   const selectedEmotionID = e.target.id;
@@ -89,3 +95,8 @@ function renderEmotionsRadios(cats) {
   emotionsRadios.innerHTML = emotionsHtml;
 }
 renderEmotionsRadios(catsData);
+
+
+function closeModal() {
+  memeModal.style.display = "none";
+}
