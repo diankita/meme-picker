@@ -15,15 +15,15 @@ h1, h2{
 }
 
 h1{
-    font-size: 28px;
+    font-size: 30px;
 }
 
 h2 {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 h3{
-    margin: 25px;
+    margin: 26px;
 }
 
 /* layout */
@@ -69,7 +69,7 @@ header{
 }
 
 label{
-    font-size: 14px;
+    font-size: 15px;
     padding: 3px;
     width: 100%;
     cursor: pointer;
@@ -110,6 +110,7 @@ input[type="radio"]{
     border: none;
     border-radius: 5px;
     margin-bottom: 8px;
+    box-shadow: 2px 1px 1px;
 }
 
 .get-image-btn:hover, .get-image-btn:focus {
@@ -131,8 +132,8 @@ input[type="radio"]{
     justify-content: center;
     border: 1px solid #67595e;
     border-radius: 5px;
-    width: 420px;
-    height: 490px;
+    width: 430px;
+    height: 500px;
     background-color: #fff0ee;
 }
 
