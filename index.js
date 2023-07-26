@@ -13,7 +13,7 @@ emotionsRadios.addEventListener("change", highlightSelectedEmotion);
 getImageBtn.addEventListener("click", renderCatMeme);
 memeModalCloseBtn.addEventListener("click", closeModal);
 document.addEventListener("click", (e) => {
-  if (e.target.id != "meme-modal" && e.target.id != "get-image-btn") {
+  if (!e.target.closest(".meme-modal") && e.target.id != "get-image-btn") {
     closeModal();
   }
 });
